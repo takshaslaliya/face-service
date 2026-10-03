@@ -48,7 +48,8 @@ def startup_event():
 
 # Configuration from Environment Variables
 SIMILARITY_THRESHOLD = float(os.getenv("SIMILARITY_THRESHOLD", "0.50"))
-NODE_API_BASE_URL = os.getenv("NODE_API_BASE_URL", "https://attendents.hpys.in").rstrip("/")
+NODE_API_BASE_URL = os.getenv("NODE_API_BASE_URL", "https://attendentsnews.hpys.in").rstrip("/")
+
 
 
 # ==============================================================================
