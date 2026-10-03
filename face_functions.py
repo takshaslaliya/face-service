@@ -11,13 +11,14 @@ def get_face_app():
     """
     global _face_app
     if _face_app is None:
-        model_name = os.getenv("INSIGHTFACE_MODEL", "buffalo_l")
+        model_name = os.getenv("INSIGHTFACE_MODEL", "buffalo_sc")
         model_root = os.getenv("INSIGHTFACE_ROOT", os.path.expanduser("~/.insightface"))
         
         print(f"[INFO] Initializing InsightFace ({model_name}) from root: {model_root}...")
         _face_app = FaceAnalysis(
             name=model_name,
             root=model_root,
+            allowed_modules=['detection', 'recognition'],
             providers=["CPUExecutionProvider"]
         )
         _face_app.prepare(

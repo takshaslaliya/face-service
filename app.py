@@ -35,6 +35,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+def startup_event():
+    try:
+        from face_functions import get_face_app
+        print("[INFO] Preloading face model on startup...")
+        get_face_app()
+        print("[INFO] Face model loaded successfully.")
+    except Exception as e:
+        print(f"[WARN] Startup model preload failed: {e}")
+
+
 # Configuration from Environment Variables
 SIMILARITY_THRESHOLD = float(os.getenv("SIMILARITY_THRESHOLD", "0.50"))
 NODE_API_BASE_URL = os.getenv("NODE_API_BASE_URL", "https://attendents.hpys.in").rstrip("/")
