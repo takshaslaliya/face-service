@@ -1,0 +1,9 @@
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.insightface/
+uploads/
+passenger_error.log
+.DS_Store
